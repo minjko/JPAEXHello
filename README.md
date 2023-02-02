@@ -16,4 +16,5 @@
 ### 3. 애플리케이션 개발
 - src/main/java/hellojpa/JpaMain.java
 - EntityManagerFactory 객체 생성 시, persistence.xml의 persistence-unit의 name 값을 참고한다
- 
+- ﻿javax.xml.bind.JAXBException 관련 오류 발생 시, pom.xml에 dependency 추가 (commit 기록 참고)
+  
