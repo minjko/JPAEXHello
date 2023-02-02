@@ -23,3 +23,5 @@
   (windows : .\h2.bat )
 - persistence.xml의 property에서 jdbc url 값을 h2 database에 로그인할 때 Generic H2 (Server)로 설정하고, jdbc url 칸에 삽입 후 연결 버튼을 누른다
 - create table Member ( id bigint not null, name varchar(255), primary key (id) );
+>객체 생성
+- src/main/java/hellojpa/Member.java
