@@ -27,8 +27,6 @@
 - src/main/java/hellojpa/Member.java
 >객체와 테이블 매핑
 - src/main/java/hellojpa/JpaMain.java
-- 회원 저장
+- 회원 저장, 조회, 수정, 삭제
    - h2 database에서 확인 (select * from member;)
-
-
-데이터 변경은 Transaction 내에서 이루어져야 한다
+- 데이터 변경은 Transaction 내에서 이루어져야 한다
