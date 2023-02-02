@@ -11,5 +11,9 @@
 
 ### 2. JPA 설정
 - src/main/resources/META-INF/persistence.xml
-- 
+- DB 방언, 드라이버 등을 설정한다
+
+### 3. 애플리케이션 개발
+- src/main/java/hellojpa/JpaMain.java
+- EntityManagerFactory 객체 생성 시, persistence.xml의 persistence-unit의 name 값을 참고한다
  
