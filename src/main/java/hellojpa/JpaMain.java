@@ -53,19 +53,27 @@ public class JpaMain {
             }
             */
 
-            // 비영속
+            /*/ 비영속
             Member member = new Member();
             member.setId(101L);
             member.setName("HelloJPA");
+            */
 
-            // 영속
+            /*/ 영속
             System.out.println("=== Before ===");
             em.persist(member);
             System.out.println("=== After ===");
 
             Member findMember = em.find(Member.class, 101L);
             System.out.println("findMembr = " + findMember.getId());
-            //*/
+            */
+
+            //* 1차 캐시
+            Member findMember1 = em.find(Member.class, 101L);
+            System.out.println("여기서는 조회 쿼리가 나타난다");
+            Member findMember2 = em.find(Member.class, 101L);
+            System.out.println("여기서는 조회 쿼리가 나타나지 않는다. 1차 캐시에서 조회하기 때문이다");
+
 
             tx.commit();
         } catch (Exception e) {
