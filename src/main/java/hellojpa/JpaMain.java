@@ -100,10 +100,22 @@ public class JpaMain {
             // tx.commit(); 이 순간에 DB로 쿼리가 날아간다
             */
 
-            //* 변경 감지(엔티티 수정)
+            /* 변경 감지(엔티티 수정)
             Member member = em.find(Member.class, 150L);
             member.setName("zzzzz");
             // em.persist(member); 왜 하지 않아도 될까?
+            */
+
+            //* Flush
+            Member member = new Member();
+            member.setId(200L);
+            member.setName("member200");
+
+            em.persist(member);
+
+            em.flush(); // 강제 호출 : 쿼리 날아가는 것을 보고 싶거나, 미리 DB에 반영하고 싶을 경우 사용할 수도 있다
+            System.out.println("===========");
+
 
             tx.commit();
         } catch (Exception e) {
