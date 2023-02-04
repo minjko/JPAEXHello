@@ -55,13 +55,16 @@ public class JpaMain {
 
             // 비영속
             Member member = new Member();
-            member.setId(100L);
+            member.setId(101L);
             member.setName("HelloJPA");
 
             // 영속
             System.out.println("=== Before ===");
             em.persist(member);
             System.out.println("=== After ===");
+
+            Member findMember = em.find(Member.class, 101L);
+            System.out.println("findMembr = " + findMember.getId());
             //*/
 
             tx.commit();
