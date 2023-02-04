@@ -41,7 +41,7 @@ public class JpaMain {
             findMember.setName("HelloJPA");
             */
 
-            // JPQL
+            /* JPQL
             List<Member> result = em.createQuery("select m from Member as m", Member.class)
                     .setFirstResult(5)
                     .setMaxResults(8)
@@ -51,6 +51,18 @@ public class JpaMain {
                 System.out.println("member.name = " + member.getName());
                 // 객체를 대상으로 하는 객체지향 쿼리이다.
             }
+            */
+
+            // 비영속
+            Member member = new Member();
+            member.setId(100L);
+            member.setName("HelloJPA");
+
+            // 영속
+            System.out.println("=== Before ===");
+            em.persist(member);
+            System.out.println("=== After ===");
+            //*/
 
             tx.commit();
         } catch (Exception e) {
