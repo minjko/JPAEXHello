@@ -75,11 +75,29 @@ public class JpaMain {
             System.out.println("여기서는 조회 쿼리가 나타나지 않는다. 1차 캐시에서 조회하기 때문이다");
             */
 
-            //* 동일성 보장
+            /* 동일성 보장
             Member findMember1 = em.find(Member.class, 101L);
             Member findMember2 = em.find(Member.class, 101L);
             System.out.println("result = " + (findMember1 == findMember2));
+            */
 
+            //* 트랜잭션을 지원하는 쓰기 지연
+            // EntityTransaction transaction = em.getTransaction();
+            // transaction.begin();
+
+            Member member1 = new Member();
+            member1.setId(150L);
+            member1.setName("A");
+
+            Member member2 = new Member();
+            member2.setId(160L);
+            member2.setName("B");
+
+            em.persist(member1);
+            em.persist(member2);
+            System.out.println("============ 이 이후에 쿼리가 날아갈 것이다");
+
+            // tx.commit(); 이 순간에 DB로 쿼리가 날아간다
 
             tx.commit();
         } catch (Exception e) {
