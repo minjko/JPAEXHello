@@ -31,4 +31,6 @@
    - h2 database에서 확인 (select * from member;)
 - 데이터 변경은 Transaction 내에서 이루어져야 한다
 >JPQL
+
+>영속성 컨테이너
 ---
