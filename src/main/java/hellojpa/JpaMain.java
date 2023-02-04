@@ -68,11 +68,17 @@ public class JpaMain {
             System.out.println("findMembr = " + findMember.getId());
             */
 
-            //* 1차 캐시
+            /* 1차 캐시
             Member findMember1 = em.find(Member.class, 101L);
             System.out.println("여기서는 조회 쿼리가 나타난다");
             Member findMember2 = em.find(Member.class, 101L);
             System.out.println("여기서는 조회 쿼리가 나타나지 않는다. 1차 캐시에서 조회하기 때문이다");
+            */
+
+            //* 동일성 보장
+            Member findMember1 = em.find(Member.class, 101L);
+            Member findMember2 = em.find(Member.class, 101L);
+            System.out.println("result = " + (findMember1 == findMember2));
 
 
             tx.commit();
