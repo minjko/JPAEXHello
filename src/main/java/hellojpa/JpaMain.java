@@ -81,7 +81,7 @@ public class JpaMain {
             System.out.println("result = " + (findMember1 == findMember2));
             */
 
-            //* 트랜잭션을 지원하는 쓰기 지연
+            /* 트랜잭션을 지원하는 쓰기 지연
             // EntityTransaction transaction = em.getTransaction();
             // transaction.begin();
 
@@ -98,6 +98,12 @@ public class JpaMain {
             System.out.println("============ 이 이후에 쿼리가 날아갈 것이다");
 
             // tx.commit(); 이 순간에 DB로 쿼리가 날아간다
+            */
+
+            //* 변경 감지(엔티티 수정)
+            Member member = em.find(Member.class, 150L);
+            member.setName("zzzzz");
+            // em.persist(member); 왜 하지 않아도 될까?
 
             tx.commit();
         } catch (Exception e) {
