@@ -117,11 +117,21 @@ public class JpaMain {
             System.out.println("===========");
             */
 
-            //* 준영속 상태 - em.detach()
+            /* 준영속 상태 - em.detach()
             Member member = em.find(Member.class, 150L);  // 영속 상태
             member.setName("AAAAA");  // dirty checking
 
             em.detach(member);  // 준영속 상태 : Transaction이 commit할 때 아무 일도 일어나지 않는다  // select 쿼리만 날아갈 것이다 update 없이
+
+            */
+
+            //* 준영속 상태 - em.close(), em.clear()
+            Member member = em.find(Member.class, 150L);  // 영속 상태
+            member.setName("AAAAA");  // dirty checking
+
+            em.clear();
+
+            Member member2 = em.find(Member.class, 150L);
 
             System.out.println("===========");
 
