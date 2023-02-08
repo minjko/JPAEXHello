@@ -50,7 +50,7 @@ public class JpaMain {
             for (Member member : result) {
                 System.out.println("member.name = " + member.getName());
                 // 객체를 대상으로 하는 객체지향 쿼리이다.
-            }
+
             */
 
             /*/ 비영속
@@ -106,7 +106,7 @@ public class JpaMain {
             // em.persist(member); 왜 하지 않아도 될까?
             */
 
-            //* Flush
+            /* Flush
             Member member = new Member();
             member.setId(200L);
             member.setName("member200");
@@ -115,7 +115,15 @@ public class JpaMain {
 
             em.flush(); // 강제 호출 : 쿼리 날아가는 것을 보고 싶거나, 미리 DB에 반영하고 싶을 경우 사용할 수도 있다
             System.out.println("===========");
+            */
 
+            //* 준영속 상태 - em.detach()
+            Member member = em.find(Member.class, 150L);  // 영속 상태
+            member.setName("AAAAA");  // dirty checking
+
+            em.detach(member);  // 준영속 상태 : Transaction이 commit할 때 아무 일도 일어나지 않는다  // select 쿼리만 날아갈 것이다 update 없이
+
+            System.out.println("===========");
 
             tx.commit();
         } catch (Exception e) {
