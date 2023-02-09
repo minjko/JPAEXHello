@@ -33,4 +33,11 @@
 >JPQL
 
 >영속성 컨테이너
+
+>준영속 상태
 ---
+### 4. 엔티티 매핑
+>객체와 테이블 매핑 
+- src/main/java/hellojpa/Member.java
+- @Entity(name="Member")
+- @Table(name="Member")

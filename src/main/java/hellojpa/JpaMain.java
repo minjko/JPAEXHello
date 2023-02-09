@@ -125,7 +125,7 @@ public class JpaMain {
 
             */
 
-            //* 준영속 상태 - em.close(), em.clear()
+            /* 준영속 상태 - em.close(), em.clear()
             Member member = em.find(Member.class, 150L);  // 영속 상태
             member.setName("AAAAA");  // dirty checking
 
@@ -134,6 +134,15 @@ public class JpaMain {
             Member member2 = em.find(Member.class, 150L);
 
             System.out.println("===========");
+            */
+
+            //* 객체와 테이블 매핑
+            Member member = em.find(Member.class, 150L);
+            member.setName("AAAAA");
+
+            em.clear();
+
+            Member member2 = em.find(Member.class, 150L);  // 쿼리를 날리면 테이블 이름이 MBR로 변경될 것이다(Member 클래스의 @Table(name="MBR") 참고
 
             tx.commit();
         } catch (Exception e) {

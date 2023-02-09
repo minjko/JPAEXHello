@@ -5,8 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="Member")  // H2db에 있는 테이블 이름을 써준다. 그러면 쿼리가 그쪽으로 들어간다
+@Entity(name="Member")
+@Table(name="MBR")  // H2db에 있는 테이블 이름을 써준다. 그러면 쿼리가 그쪽으로 들어간다
 public class Member {
     @Id
     @Column(name="id")  // H2db에 있는 테이블의 컬럼명을 써준다. 그러면 쿼리가 그쪽으로 들어간다
